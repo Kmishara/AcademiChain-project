@@ -1,5 +1,5 @@
 const User = require("../models/userModels");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 // const{jwtAuthMiddlware,generateToken} = require('../utilis/jwt');
 // require("dotenv").config();
 
