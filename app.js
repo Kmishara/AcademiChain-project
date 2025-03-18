@@ -14,7 +14,7 @@ app.use(cookieParser());
 var indexRouter = require('./Routes/userRoutes');
 // var profileRouter = require('./routes/profileRoutes');
  var studentRouter = require("./Routes/studentRoutes");
-// var attendanceRoutes = require("./routes/attendanceRoutes");
+ var attendanceRoutes = require("./Routes/attendanceRoutes");
 app.use(session({
   secret: "your_secret_key", 
   resave: false,
@@ -31,8 +31,8 @@ app.use('/students', studentRouter);
 app.use('/update/:id', studentRouter);
 app.use('/dashboard', indexRouter);
 app.use('/', studentRouter);
-// app.use('/', attendanceRoutes);
-// app.use('/attendance', attendanceRoutes);
+app.use('/', attendanceRoutes);
+app.use('/attendance', attendanceRoutes);
 
 app.get('/', (req, res) => {
     res.render('index', { title: 'Express' });

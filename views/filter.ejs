@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="/css/filter.css">
+ 
+</head>
+<body>
+  <header class="header">
+    <a href="/dashboard">dashboard</a>
+    <a href="/attendance">attendance</a>
+    <a href="/show-attendance">show-attendance</a>
+    <a href="/Profile">update-profile</a>
+    <a href="/feed">details</a>
+    <a href="/filter">filter</a>
+     </header>
+  <h1>Student Dashboard</h1>
+
+  <form action="/filter" method="POST">
+    <input type="text" name="enroll" placeholder="Enter Enrollment Number" required />
+    <button type="submit">Search</button>
+  </form>
+
+  <% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+  <% } %>
+  
+  <% if (student) { %>
+    <h3>Student Details</h3>
+    <div class="profile-card  <%= isWeak ? 'red' : isAvg ? 'yellow' : 'green' %>">
+      <div class="image">
+        <img src="/images/uploads/<%=student.profilepic %>"  alt="Profile" class="profile-pic" />
+      </div>
+      <div class="data">
+        <h2><%= student.name %></h2>
+        <span><%= student.enroll %></span>
+      </div>
+      <div class="row">
+        <div class="info">
+          <h3>CGPA</h3>
+          <span><%= student.marks %></span>
+        </div>
+        <div class="info">
+          <h3>Back-log</h3>
+          <span>0</span> <!-- Replace with dynamic data if needed -->
+        </div>
+        <div class="info">
+          <h3>Present</h3>
+          <span>30</span> <!-- Replace with dynamic data if needed -->
+        </div>
+      </div>
+    </div>
+  <% } %>
+  
+</body>
+</html>

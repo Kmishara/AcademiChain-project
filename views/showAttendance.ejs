@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Records</title>
+    <link rel="stylesheet" href="/css/showAttendance.css">
+</head>
+<body>
+    <header class="header">
+        <a href="/dashboard">dashboard</a>
+        <a href="/attendance">attendance</a>
+        <a href="/show-attendance">show-attendance</a>
+        <a href="/Profile">update-profile</a>
+        <a href="/feed">details</a>
+        <a href="/filter">filter</a>
+         </header>
+    <h1>Attendance Records</h1>
+
+    <% if (attendanceRecords.length === 0) { %>
+        <p>No attendance records found.</p>
+    <% } else { %>
+        <% attendanceRecords.forEach(record => { %>
+            <div class="attendance-record">
+                <h2>Course: <%= record.course %></h2>
+                <p>Date: <%= new Date(record.date).toLocaleDateString() %></p>
+                <h3>Students:</h3>
+                <ul>
+                    <% record.students.forEach(student => { %>
+                        <li>
+                            <strong><%= student.enroll %> (<%= student.enroll %>)</strong>:
+                            <%= student.status %>
+                        </li>
+                    <% }); %>
+                </ul>
+                <hr>
+            </div>
+        <% }); %>
+    <% } %>
+</body>
+</html>

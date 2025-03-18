@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/attendance.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        #tablerender {
+          display: none; /* Initially hide the table */
+        }
+        #btn{
+            display: none;
+        }
+      </style>
+</head>
+<body>
+    <header class="header">
+        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="/attendance"><i class="fas fa-calendar-check"></i> Attendance</a>
+        <a href="/show-attendance"><i class="fas fa-list"></i> Show Attendance</a>
+        <a href="/Profile"><i class="fas fa-user"></i> Update Profile</a>
+        <a href="/feed"><i class="fas fa-info-circle"></i> Details</a>
+        <a href="/filter"><i class="fas fa-filter"></i> Filter</a>
+    </header>
+    <h1>mark attendance</h1>
+   <form action="/attendance" id="attendanceForm" method="post">
+    <input type="date" id="date" name="date">
+    <select name="course"  id="course">
+        <option value="" selected disabled>Select a course</option>
+        <option value="CS 101">CS 101</option>
+        <option value="CS 102">CS 102</option>
+        <option value="CS 103">CS 103</option>
+    </select>
+    
+   <!-- </form> -->
+
+
+   <!-- after submission -->
+   <table id="tablerender">
+    <thead>
+                <tr>
+                  <th>Name</th>
+              
+                <th>Enrollment Number</th>
+                <th>Present</th>
+                <th>Absent</th>
+                </tr>
+              </thead>
+        <tbody>
+            <% if (students && students.length > 0) { %>
+                <% students.forEach(function(user){%>
+                    <tr>
+                       <td><%= user.name %></td>
+                        
+                        <td><%= user.enroll %></td>
+                        <td><input type="checkbox" name="attendance[<%= user.enroll %>][status]" value="Present"></td>
+                        <td><input type="checkbox" name="attendance[<%= user.enroll %>][status]" value="Absent"></td>
+    
+                         <!-- <td><%=user.profilepic %></td> -->
+                        </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="5">No students found.</td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+     <button id="btn" type="submit">Submit Attendance</button>
+
+</form>
+   <!-- for hiding table -->
+       
+         <script>
+    function showTable(event) {
+      // Prevent the form's default submission behavior for testing
+      event.preventDefault();
+
+      // Get the table element and make it visible
+      const table = document.getElementById('tablerender');
+      const btn = document.getElementById('btn')
+      table.style.display = 'block';
+      btn.style.display = 'block';
+    }
+
+
+    document.getElementById('course').addEventListener('change', showTable);
+</script> 
+ 
+      
+    
+  <!-- submit the button -->
+      <script>document.getElementById('attendanceForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        const form = event.target;
+        const formData = new FormData(form);
+        const attendanceData = {};
+    
+        formData.forEach((value, key) => {
+            if (key.startsWith('attendance')) {
+                const enroll = key.split('[')[1].split(']')[0];
+                if (!attendanceData[enroll]) {
+                    attendanceData[enroll] = {};
+                }
+                attendanceData[enroll].status = value;
+            }
+        });
+    
+        // Now add the date and course from the form data
+        const data = {
+            date: formData.get('date'),
+            course: formData.get('course'),
+            status: attendanceData,
+        };
+    
+        // Post the form data to the backend
+        fetch('/attendance', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Attendance submitted successfully!');
+            } else {
+                alert('Error marking attendance.');
+            }
+        })
+        .catch(error => {
+            alert('Error submitting attendance.');
+        });
+    });
+    </script> 
+     
+
+</body>
+</html>
