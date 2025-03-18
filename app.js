@@ -31,6 +31,7 @@ app.use('/students', studentRouter);
 app.use('/update/:id', studentRouter);
 app.use('/dashboard', indexRouter);
 app.use('/', studentRouter);
+app.use("/",profileRouter);
 app.use('/', attendanceRoutes);
 app.use('/attendance', attendanceRoutes);
 

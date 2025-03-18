@@ -29,8 +29,8 @@ const payload = {
   username:response.username
 }
 console.log(JSON.stringify(payload));
-// const token = generateToken(payload);
-// console.log("Token is :",token);
+const token = generateToken(payload);
+console.log("Token is :",token);
 res.redirect('./login')
   } catch (error) {
     console.error("Registration error:", error.message);
@@ -58,8 +58,8 @@ exports.loginUser = async (req, res) => {
     username:user.username
   }
   console.log(payload)
-  // const token = generateToken(payload)
-  // console.log(token)
+  const token = generateToken(payload)
+  console.log(token)
   req.session.userId = { _id: user._id,
     username: user.username,
   };
