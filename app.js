@@ -12,7 +12,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
 var indexRouter = require('./Routes/userRoutes');
-// var profileRouter = require('./routes/profileRoutes');
+ var profileRouter = require('./Routes/profileRoutes');
  var studentRouter = require("./Routes/studentRoutes");
  var attendanceRoutes = require("./Routes/attendanceRoutes");
 app.use(session({
@@ -25,7 +25,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use('/', indexRouter);
-// app.use('/profile', profileRouter);
+app.use('/profile', profileRouter);
  app.use('/search', studentRouter);
 app.use('/students', studentRouter);
 app.use('/update/:id', studentRouter);
