@@ -1,7 +1,7 @@
 const User = require("../models/userModels");
 const bcrypt = require("bcryptjs");
-// const{jwtAuthMiddlware,generateToken} = require('../utilis/jwt');
-// require("dotenv").config();
+const{jwtAuthMiddlware,generateToken} = require('../utilis/jwt');
+require("dotenv").config();
 
 // Register User
 exports.registerUser = async (req, res) => {

@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Header Styles */
+.header {
+  background-color: #333;
+  padding: 10px 20px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+}
+
+.header a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.header a:hover {
+  background-color: #444;
+  border-radius: 5px;
+}
+
+/* Table Styles */
+#tablerender {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  overflow-x: auto; /* Makes table scrollable horizontally on small screens */
+}
+
+#tablerender th, #tablerender td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+#tablerender th {
+  background-color: #333;
+  color: white;
+}
+
+#tablerender tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+#tablerender tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Profile Picture */
+#userprofilepic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Action Button Styles */
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+button.update-btn {
+  background-color: #ff9800;
+}
+
+button.delete-btn {
+  background-color: #f44336;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Empty Data Row */
+td[colspan="5"] {
+  text-align: center;
+  font-size: 18px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  color: #888;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .header {
+    font-size: 14px;
+  }
+
+  #tablerender th, #tablerender td {
+    padding: 10px 12px;
+  }
+
+  #tablerender {
+    font-size: 14px;
+  }
+
+  button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    font-size: 13px;
+  }
+
+  #tablerender th, #tablerender td {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  #tablerender {
+    font-size: 12px;
+  }
+
+  button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  /* Stack action buttons vertically on small screens */
+  td button {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .header {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  #tablerender th, #tablerender td {
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  #tablerender {
+    font-size: 10px;
+  }
+
+  button {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+
+  td button {
+    width: 100%;
+  }
+}
