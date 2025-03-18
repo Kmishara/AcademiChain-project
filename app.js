@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 
-var indexRouter = require('./routes/userRoutes');
+var indexRouter = require('./Routes/userRoutes');
 // var profileRouter = require('./routes/profileRoutes');
 // var studentRouter = require("./routes/studentRoutes");
 // var attendanceRoutes = require("./routes/attendanceRoutes");
