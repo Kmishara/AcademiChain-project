@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  
+    <section id="first-sem" class="content-section" >
+        <h2><%= user ? "Update User" : "Add User" %></h2>
+      
+        <form action="<%= user ? '/update/' + user._id : '/add' %>" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="name">Username</label>
+            <input type="text" name="name" value="<%= user ? user.name : '' %>" placeholder="Username" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="mail">Email</label>
+            <input type="email" name="mail" value="<%= user ? user.mail : '' %>" placeholder="Email" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="enroll">Enrollment Number</label>
+            <input type="text" name="enroll" value="<%= user ? user.enroll : '' %>" placeholder="Enrollment Number" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="Branch">Branch</label>
+            <input type="text" name="Branch" value="<%= user ? user.Branch : '' %>" placeholder="Branch" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="Course">Course</label>
+            <input type="text" name="Course" value="<%= user ? user.Course : '' %>" placeholder="Course" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="semester">Semester</label>
+            <input type="number" name="semester" value="<%= user ? user.semester : '' %>" placeholder="Semester" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="prsnlphn">Personal Phone Number</label>
+            <input type="text" minlength="10" maxlength="10" name="prsnlphn" value="<%= user ? user.prsnlphn : '' %>" placeholder="Personal Phone Number" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="parentsphn">Parents Phone Number</label>
+            <input type="text" minlength="10" maxlength="10" name="parentsphn" value="<%= user ? user.parentsphn : '' %>" placeholder="Parents Phone Number" required>
+          </div>
+          <div class="form-group">
+            <label for="firstSem">I C.G.P.A</label>
+            <input type="number" name="firstSem" value="<%= user ? user.firstSem : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+          <div class="form-group">
+            <label for="secSem">II C.G.P.A</label>
+            <input type="number" name="secSem" value="<%= user ? user.secSem : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+          <div class="form-group">
+            <label for="thirdSem">III C.G.P.A</label>
+            <input type="number" name="thirdSem" value="<%= user ? user.thirdSem : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+          <div class="form-group">
+            <label for="fourthSem">IV C.G.P.A</label>
+            <input type="number" name="fourthSem" value="<%= user ? user.fourthSem : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+          <div class="form-group">
+            <label for="fifthSem">V C.G.P.A</label>
+            <input type="number" name="fifthSem" value="<%= user ? user.fifthSem : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+          <div class="form-group">
+            <label for="sixthSem">VI C.G.P.A</label>
+            <input type="number" name="sixthSem" value="<%= user ? user.sixthSem : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+          <div class="form-group">
+            <label for="seventhSem">VII C.G.P.A</label>
+            <input type="number" name="seventhSem" value="<%= user ? user.seventhSem : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+          <div class="form-group">
+            <label for="marks">VIII C.G.P.A</label>
+            <input type="number" name="marks" value="<%= user ? user.marks : '' %>" placeholder="VIII C.G.P.A" required>
+          </div>
+      
+          <div class="form-group">
+            <label for="profilepic">Profile Pic</label>
+            <input type="file" name="profilepic">
+            <% if (user && user.profilepic) { %>
+              <img src="/images/uploads/<%= user.profilepic %>" alt="Profile Pic" width="100">
+            <% } %>
+          </div>
+      
+          <input type="submit" id="submit-btn" name="submit" value="<%= user ? 'Update' : 'Submit' %>">
+        </form>
+      </section>
+      
+    </body>
+</html>
