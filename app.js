@@ -13,7 +13,7 @@ app.use(cookieParser());
 
 var indexRouter = require('./Routes/userRoutes');
 // var profileRouter = require('./routes/profileRoutes');
- var studentRouter = require("./routes/studentRoutes");
+ var studentRouter = require("./Routes/studentRoutes");
 // var attendanceRoutes = require("./routes/attendanceRoutes");
 app.use(session({
   secret: "your_secret_key", 
