@@ -148,5 +148,16 @@
             document.querySelector(".nav-links").classList.toggle("active");
         }
     </script>
+
+<script>
+    // Get today's date in YYYY-MM-DD format
+    const today = new Date().toISOString().split('T')[0];
+
+    // Set the input field's min and max attributes to today's date
+    const dateInput = document.getElementById('date');
+    dateInput.setAttribute('min', today);
+    dateInput.setAttribute('max', today);
+    dateInput.value = today; // Set default value to today
+</script>
 </body>
 </html>
