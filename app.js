@@ -44,7 +44,10 @@ app.get('/Profile', (req, res) => {
 app.get("/session-check", (req, res) => {
   res.json({ session: req.session });
 });
-
+app.get("/logout", (req, res) => {
+  res.clearCookie("token");
+  res.redirect("/login");
+});
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
