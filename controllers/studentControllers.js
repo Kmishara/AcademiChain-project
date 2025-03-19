@@ -16,7 +16,7 @@ exports.addstudentsUser = async (req, res) => {
        
         // Validate input fields
         if (!name || !mail || !semester || !enroll || !Branch || !Course || !prsnlphn || !parentsphn || !firstSem ||!secSem || !thirdSem || !fourthSem ||!fifthSem ||!sixthSem || !seventhSem || !marks || !req.file) {
-          return res.status(400).json({ message: "All fields are required." });
+          return res.send(`<script>alert("All fields are required!"); window.history.back(/add);</script>`);
         }
         
         // Validate file upload
@@ -25,7 +25,7 @@ exports.addstudentsUser = async (req, res) => {
         // Check if the student with the given email already exists
         const existingStudent = await Student.findOne({ mail });
         if (existingStudent) {
-          return res.status(400).json({ message: "Student with this email already exists." });
+          return res.send(`<script>alert("Student with this email already exists!"); window.history.back(/add);</script>`);
         }
     
    
@@ -53,10 +53,10 @@ exports.addstudentsUser = async (req, res) => {
         // Save the student to the database
         await newStudent.save();
     
-        res.status(201).json({ message: "Student added successfully!" });
+        res.send(`<script>alert("Student added successfully!"); window.location.href="/feed";</script>`);
       } catch (error) {
         console.error("Error adding student:", error.message);
-        res.status(500).json({ message: "Failed to add student. Please try again later." });
+        res.send(`<script>alert("Failed to add student. Please try again later."); window.history.back();</script>`);
       }
     };
 //}

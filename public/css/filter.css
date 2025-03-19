@@ -114,25 +114,7 @@ h1 {
 }
 
 /* Header Navigation */
-.header {
-  background-color: #007bff;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
 
-.header a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.header a:hover {
-  text-decoration: underline;
-}
 
 /* Form Styling */
 form {
@@ -228,4 +210,63 @@ p {
 .green {
   background-color: #ccffcc;
   border-left: 5px solid green;
+}
+
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h6 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.nav-links a:hover {
+  color: #f1c40f;
+}
+
+/* Menu icon styling */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #333;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+  }
+
+  .nav-links.active {
+      display: flex;
+  }
+
+  .menu-icon {
+      display: block;
+  }
 }

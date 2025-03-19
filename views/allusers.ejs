@@ -14,12 +14,18 @@
 </head>
 <body>
     <header class="header">
-        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="/attendance"><i class="fas fa-calendar-check"></i> Attendance</a>
-        <a href="/show-attendance"><i class="fas fa-list"></i> Show Attendance</a>
-        <a href="/Profile"><i class="fas fa-user"></i> Update Profile</a>
-        <a href="/feed"><i class="fas fa-info-circle"></i> Details</a>
-        <a href="/filter"><i class="fas fa-filter"></i> Filter</a>
+        <h6>AcadeimChain</h6>
+        <div class="menu-icon" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav class="nav-links">
+            <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="/attendance"><i class="fas fa-calendar-check"></i> Attendance</a>
+            <a href="/show-attendance"><i class="fas fa-list"></i> Show Attendance</a>
+            <a href="/Profile"><i class="fas fa-user"></i> Update Profile</a>
+            <a href="/feed"><i class="fas fa-info-circle"></i> Details</a>
+            <a href="/filter"><i class="fas fa-filter"></i> Filter</a>
+        </nav>
     </header>
     
       <!-- End Header -->
@@ -159,7 +165,11 @@
 
 </script>
 
-
+<script>
+    function toggleMenu() {
+        document.querySelector(".nav-links").classList.toggle("active");
+    }
+</script>
 
 
 </body>
