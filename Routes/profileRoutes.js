@@ -6,10 +6,8 @@ const path = require('path');
 // Middleware to check if user is logged in
 const upload = require("../utilis/multer");
 router.get('/Profile',function(req,res,next){
-
-    res.render(path.join(__dirname, '../views', 'Profile.ejs'));
-   
-   });
+  res.render(path.join(__dirname, '../views', 'Profile.ejs'));
+ });
 // Route to render profile page with user data
 router.get("/Profile", async (req, res) => {
     try {
