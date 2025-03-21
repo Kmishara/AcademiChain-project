@@ -189,7 +189,8 @@ router.post("/update/:id", upload.single("profilepic"), async (req, res) => {
 
     // ✅ Redirect to the updated profile page after successful update
     // res.redirect(`/update/${id}`);
-    res.status(200).json({ updatedstudents: updatedStudent });
+     res.status(200).json({ updatedstudents: updatedStudent });
+     
   } catch (error) {
     console.error("Error updating student:", error);
     res.status(500).json({ success: false, message: "Error updating student" });
