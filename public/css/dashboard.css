@@ -4,6 +4,7 @@ body {
     background-color: #1d2634;
     color: #9e9ea4;
     font-family: "Montserrat", sans-serif;
+    overflow: hidden;
   }
   
   .material-icons-outlined {
@@ -416,4 +417,16 @@ body {
   
   .sub-menu-link:hover span {
     transform: translateX(5px);
+  }
+  #searchForm{
+    margin-bottom: 20px;
+    
+  }
+  #check-status{
+    position: absolute;
+    top: 45%;
+    left: 45%;
+    height: 500px;
+   
+    width: 500px;
   }
