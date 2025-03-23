@@ -34,13 +34,13 @@
                 <p>Date: <%= new Date(record.date).toLocaleDateString() %></p>
                 <h3>Students:</h3>
                 <ul>
-                    <% record.students.forEach(student => { %>
+                    <% record.students.sort((a, b) => a.enroll.localeCompare(b.enroll)).forEach((student, index) => { %>
                         <li>
-                            <strong><%= student.enroll %> (<%= student.enroll %>)</strong>:
-                            <%= student.status %>
+                            <strong><%= index + 1 %>. <%= student.enroll %></strong>: <%= student.status %>
                         </li>
                     <% }); %>
                 </ul>
+                
                 <hr>
             </div>
         <% }); %>

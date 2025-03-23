@@ -67,6 +67,7 @@
    <table id="tablerender">
     <thead>
                 <tr>
+                    <th>S.No</th>
                   <th>Name</th>
               
                 <th>Enrollment Number</th>
@@ -74,25 +75,24 @@
                 <th>Absent</th>
                 </tr>
               </thead>
-        <tbody>
-            <% if (students && students.length > 0) { %>
-                <% students.forEach(function(user){%>
-                    <tr>
-                       <td><%= user.name %></td>
-                        
-                        <td><%= user.enroll %></td>
-                        <td><input type="radio" name="attendance[<%= user.enroll %>][status]" value="Present"></td>
-                        <td><input type="radio" name="attendance[<%= user.enroll %>][status]" value="Absent"></td>
-    
-                         <!-- <td><%=user.profilepic %></td> -->
+              <tbody>
+                <% if (students && students.length > 0) { %>
+                    <% students.sort((a, b) => a.enroll.localeCompare(b.enroll)).forEach(function(user, index) { %>
+                        <tr>
+                            <td><%= index + 1 %></td> <!-- Serial Number -->
+                            <td><%= user.name %></td>
+                            <td><%= user.enroll %></td>
+                            <td><input type="radio" name="attendance[<%= user.enroll %>][status]" value="Present"></td>
+                            <td><input type="radio" name="attendance[<%= user.enroll %>][status]" value="Absent"></td>
                         </tr>
-                <% }); %>
-            <% } else { %>
-                <tr>
-                    <td colspan="5">No students found.</td>
-                </tr>
-            <% } %>
-        </tbody>
+                    <% }); %>
+                <% } else { %>
+                    <tr>
+                        <td colspan="5">No students found.</td>
+                    </tr>
+                <% } %>
+            </tbody>
+            
     </table>
      <button id="btn" type="submit">Submit Attendance</button>
 
