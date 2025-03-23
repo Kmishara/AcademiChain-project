@@ -1,0 +1,38 @@
+#searchForm{
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    width: 500px;
+    margin-bottom: 20px;
+
+  }
+  #searchForm input{
+    width: 100%;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  #searchForm button{
+    
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #searchForm button:hover {
+    background-color: #0056b3;
+  }
+  #studentTable{
+    position: absolute;
+    top: 50%;
+  }
+
+
+  

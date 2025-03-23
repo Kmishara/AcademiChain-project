@@ -4,7 +4,7 @@ body {
     background-color: #1d2634;
     color: #9e9ea4;
     font-family: "Montserrat", sans-serif;
-    overflow: hidden;
+   
   }
   
   .material-icons-outlined {
@@ -248,14 +248,14 @@ body {
     }
   }
   
-  form {
-    background-color: #fff;
+  /* form {
+    background-color: #000;
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
-  }
+  } */
   
   form h2 {
     text-align: center;
@@ -273,27 +273,40 @@ body {
     font-size: 14px;
     font-weight: bold;
     margin-bottom: 5px;
-    color: #555;
+    color: #fff;
   }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="number"] {
+  .form-group input {
     width: 100%;
     padding: 10px;
     font-size: 14px;
-    border: 1px solid #ccc;
+   border: none;
     border-radius: 5px;
     box-sizing: border-box;
   }
-  
+  .detaishide input{ 
+    /* width: 0;
+    height: auto;
+   border-radius: 50%;
+   padding: 0px; */
+   
+  }
+  input[type="submit"]{
+    background-color: white;
+    /* width: 5%; */
+    border-radius: 5px;
+    border: none;
+    padding: 3px 3px;
+    color: #1d2634;
+    /* text-align: center; */
+  }
+
   input::placeholder {
     font-size: 12px;
     color: #aaa;
   }
   
   /* Submit button styling */
-  button[type="submit"] {
+  /* button[type="submit"] {
     width: 100%;
     padding: 12px;
     font-size: 16px;
@@ -308,7 +321,7 @@ body {
   
   button[type="submit"]:hover {
     background-color: #0056b3;
-  }
+  } */
   
   /* Responsive Design */
   @media (max-width: 400px) {
@@ -323,25 +336,9 @@ body {
     }
   }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
 
-  th, td {
-    border: 1px solid #1a0101;
-    padding: 10px;
-    text-align: center;
-  }
 
-  th {
-    background-color: #100f0f;
-  }
-
-  /* tr:nth-child(even) {
-    background-color: #060606;
-  } */
+ 
 
   #profilepic{
     height: 20%;
@@ -418,15 +415,12 @@ body {
   .sub-menu-link:hover span {
     transform: translateX(5px);
   }
-  #searchForm{
-    margin-bottom: 20px;
-    
-  }
-  #check-status{
-    position: absolute;
-    top: 45%;
-    left: 45%;
-    height: 500px;
-   
-    width: 500px;
-  }
+  
+ 
+
+#first-sem{
+  width: 100%;
+}  
+ #first-sem form input[type="text"]{
+  background-color: #fff;
+ } 

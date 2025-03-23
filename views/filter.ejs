@@ -5,37 +5,101 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Student Dashboard</title>
   <link rel="stylesheet" href="/css/filter.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+  rel="stylesheet"
+/>
+<link
+href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+rel="stylesheet"
+/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- <link rel="stylesheet" href="/css/dashboard.css" /> -->
+  <!-- <link rel="stylesheet" href="/css/card.css"> -->
+
+
 </head>
 <body>
   <header class="header">
-    <h6>AcadeimChain</h6>
-    <div class="menu-icon" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
+    <h6>Academic Chain</h6>
+    <div class="menu-icon" onclick="toggleSidebar()">
+      <i class="fas fa-bars"></i> 
+  </div>
+    <div class="header-right">
+        <span class="material-icons-outlined" id="profile">account_circle</span>
     </div>
-    <nav class="nav-links">
-        <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
-        <a href="/attendance"><i class="fas fa-calendar-check"></i> Attendance</a>
-        <a href="/show-attendance"><i class="fas fa-list"></i> Show Attendance</a>
-        <a href="/Profile"><i class="fas fa-user"></i> Update Profile</a>
-        <a href="/feed"><i class="fas fa-info-circle"></i> Details</a>
-        <a href="/filter"><i class="fas fa-filter"></i> Filter</a>
-        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>          Logout</a>
-    </nav>
 </header>
-  <h1>Student Dashboard</h1>
+
+<aside id="aside">
+    <div class="close-btn" onclick="toggleSidebar()">
+        <i class="fas fa-times"></i>
+    </div>
+   
+    <nav class="nav-links">
+        <a href="/dashboard"> <span class="material-icons-outlined">dashboard</span></i>Student Dashboard</a>
+        <a href="/feed"><i class="fas fa-info-circle"></i>Student Data</a>
+        <a href="/filter"> <span class="material-icons-outlined">school</span>Student Filter</a>
+        <a href="/attendance"> <span class="material-icons-outlined"> how_to_reg</span></i>Mark Attendance</a>
+        <a href="/show-attendance"><span class="material-icons-outlined">event</span> Show Attendance</a>
+        <a href="/Profile"><i class="fas fa-user"></i> Update Profile</a>
+        <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </nav>
+</aside>
+
+   <!-- profile -->
+   <!-- <div class="sub-menu-warp" id="subMenu">
+    <div class="sub-menu">
+      <div class="user-info">
+        <img src="/images/simple-user-default-icon-free-png.webp"  />
+        <% if (user) { %> 
+          <h1>Welcome, <%= user.username %>!</h1>
+      <% } else { %>
+          <p> Admin  </p>
+      <% } %>
+      </div>
+      <hr />
+      <a href="./Profile" class="sub-menu-link">
+        <img src="/images/profile.png" alt="Profile" />
+        <p>Edit Profile</p>
+        <span>></span>
+      </a>
+      <a href="#" class="sub-menu-link">
+        <img src="/images/setting.png" alt="Settings" />
+        <p>Settings & Privacy</p>
+        <span>></span>
+      </a>
+      <a href="#" class="sub-menu-link">
+        <img src="/images/help.png" alt="Help" />
+        <p>Help & Support</p>
+        <span>></span>
+      </a>
+      <a href="/logout" class="sub-menu-link">
+        <img src="/images/logout.png" alt="Logout" />
+        <p>Logout</p>
+        <span>></span>
+      </a>
+    </div>
+  </div> -->
+<!-- profile -->
+ 
+<h1>Student Activity</h1>
 
   <form action="/filter" method="POST">
     <input type="text" name="enroll" placeholder="Enter Enrollment Number" required />
+    <br>
+    <br>
     <button type="submit">Search</button>
   </form>
+
+ 
 
   <% if (error) { %>
     <p style="color: red;"><%= error %></p>
   <% } %>
   
   <% if (student) { %>
-    <h3>Student Details</h3>
+   
     <div class="profile-card  <%= isWeak ? 'red' : isAvg ? 'yellow' : 'green' %>">
       <div class="image">
         <img src="/images/uploads/<%=student.profilepic %>"  alt="Profile" class="profile-pic" />
@@ -61,10 +125,38 @@
     </div>
   <% } %>
   
-  <script>
+  <!-- <script>
     function toggleMenu() {
         document.querySelector(".nav-links").classList.toggle("active");
     }
+</script> -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.35.5/apexcharts.min.js"></script>
+<!-- Custom JS -->
+ <script src="/js/navbar.js"></script>
+<script src="/js/dashboard.js"></script>
+<!-- js for hide -->
+<script>
+ 
+  function toggleSidebar() {
+    var sidebar = document.getElementById("aside");
+    var closeBtn = document.querySelector(".close-btn");
+
+    sidebar.classList.toggle("open");
+
+    // Show close button only when sidebar is open
+    if (sidebar.classList.contains("open")) {
+        closeBtn.style.display = "block";
+    } else {
+        closeBtn.style.display = "none";
+    }
+
+
+}
+
+
+
+
 </script>
 
 </body>

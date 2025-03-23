@@ -1,0 +1,171 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #f4f4f4; */
+    text-align: center;
+  }
+/* Header */
+.header {
+    background-color: #1d2634;
+    color: #9e9ea4;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 1342px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header Title */
+  .header h6 {
+    margin: 0;
+    color: #9e9ea4;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  /* Close button - Initially hidden */
+  .close-btn {
+    display: none;
+    font-size: 24px;
+    color: #9e9ea4;
+    cursor: pointer;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  /* Show close button when sidebar is open */
+  #aside.open .close-btn {
+    display: block;
+  }
+  
+  /* Right Side (Profile Icon) */
+  .header-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+  
+  /* Profile Icon */
+  #profile {
+    font-size: 28px;
+    color: #9e9ea4;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  
+  #profile:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+  }
+  .menu-icon {
+    cursor: pointer;
+    font-size: 22px;
+    transition: color 0.3s ease;
+  }
+  .menu-icon:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Sidebar */
+  #aside {
+    position: fixed;
+    left: 0;
+    top: 53px; /* Adjusted to match header height */
+    height: calc(100vh - 60px);
+    width: 250px;
+    background-color: #1d2634;
+    padding: 20px;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: #9e9ea4;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .nav-links a i {
+    font-size: 18px;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+   }
+  
+  
+  /* /* Responsive Design */ 
+  
+  @media (max-width: 768px) {
+    .header {
+      padding: 12px 15px;
+    }
+  
+    .header h6 {
+      font-size: 18px;
+    }
+  
+    #profile {
+      font-size: 26px;
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: column;
+    }
+  
+  
+  #aside {
+    transform: translateX(-100%);
+    position: fixed;
+    height: 100vh;
+    width: 250px;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  #aside.open {
+    transform: translateX(0);
+  }
+  .menu-icon {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+    color: #9e9ea4;
+   margin-left: 445px;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    display: block;
+    font-size: 24px;
+    color: #9e9ea4;
+    cursor: pointer;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  
+  }

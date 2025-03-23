@@ -1,164 +1,74 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  
-input, button {
-    padding: 10px;
-    margin: 10px 0;
-  }
-  .profile-card {
-    max-width: 300px; /* Adjust the card width */
-    /* width: 100%;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  .profile-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    max-width: 400px;
-    width: 100%;
-    border-radius: 25px;
-    padding: 30px;
-    border: 1px solid #ffffff40;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .profile-card:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 49%;
-    z-index: -1;
-  }
-  
-  .profile-card.red:before {
-    background-color: red;
-  }
-
-  .profile-card.green:before {
-    background-color: green;
-  }
- 
-  
-  .profile-card.yellow:before {
-    background-color: yellow;
-  }
-
-  
-  .image {
-    position: relative;
-    height: 150px;
-    width: 150px;
-  }
-  
-  .image .profile-pic {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
-  }
-  
-  .data {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 15px;
-  }
-  
-  .data h2 {
-    font-size: 33px;
-    font-weight: 600;
-  }
-  
-  span {
-    font-size: 18px;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    margin-top: 30px;
-  }
-  
-  .row .info {
-    text-align: center;
-    padding: 0 20px;
-  } */ 
-  
-
-
-  /* General Styles */
 /* General Styles */
-body {
+html,body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f4f4f4;
+  /* background-color: #1d2634; */
   text-align: center;
 }
 
 h1 {
-  color: #333;
-  margin-top: 20px;
+  color: #9e9ea4;
+  margin-top: 200px;
+  margin-left: 140px;
 }
-
-/* Header Navigation */
 
 
 /* Form Styling */
 form {
-  margin: 20px auto;
-  padding: 15px;
-  background: white;
+/* margin-top: 20px;
+margin-left: 110px;
+padding: 15px; */
+/* height: 100%; */
+/* width: 50%; */
+  /* background: white; */
   display: inline-block;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-left: 20%;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.382); */
 }
 
 input[type="text"] {
   padding: 10px;
   width: 250px;
-  border: 1px solid #ccc;
+  border: 1px solid #000;
   border-radius: 5px;
 }
 
 button {
   padding: 10px 15px;
-  background-color: #007bff;
+  background-color: #1d2634;
   color: white;
-  border: none;
+  border: 1px solid white;
   border-radius: 5px;
   cursor: pointer;
   transition: 0.3s;
+  width: 50%;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  color: #000;
 }
 
 /* Error Message */
 p {
   color: red;
   font-weight: bold;
+  margin-left: 17%;
+  font-size: 22px;
 }
 
 /* Student Profile Card */
 .profile-card {
   width: 300px;
   background: white;
-  margin: 20px auto;
+  /* margin: 20px auto; */
   padding: 20px;
+  margin-left: 47%;
+  margin-top: 10px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
@@ -213,34 +123,6 @@ p {
 }
 
 
-.header {
-  background-color: #333;
-  color: white;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header h6 {
-  margin: 0;
-  font-size: 20px;
-}
-
-.nav-links {
-  display: flex;
-  gap: 15px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.nav-links a:hover {
-  color: #f1c40f;
-}
 
 /* Menu icon styling */
 .menu-icon {
@@ -249,24 +131,17 @@ p {
   cursor: pointer;
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-  .nav-links {
-      display: none;
-      flex-direction: column;
-      background: #333;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      width: 100%;
-      padding: 10px;
-  }
 
-  .nav-links.active {
-      display: flex;
-  }
 
-  .menu-icon {
-      display: block;
-  }
+
+
+html,body{
+  /* height: 100%; */
+  width: 100%;
 }
+h1{
+  margin-top:13%;
+  margin-left: 20%;
+  color: #000;
+}
+

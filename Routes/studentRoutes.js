@@ -78,7 +78,7 @@ router.post("/filter", async (req, res) => {
     if (!student) {
       return res.render("filter", {
         student: null,
-        error: "Student not found",
+        error: "Student not found ! please enter valid enrollment number",
       });
     }
 
@@ -186,10 +186,13 @@ router.post("/update/:id", upload.single("profilepic"), async (req, res) => {
     }
 
     console.log("Updated student:", updatedStudent);
-
-    // ✅ Redirect to the updated profile page after successful update
-    // res.redirect(`/update/${id}`);
-     res.status(200).json({ updatedstudents: updatedStudent });
+    res.send(`
+      <script>
+        alert("Update Successfully!");
+        window.location.href = "/feed";
+      </script>
+    `);
+   
      
   } catch (error) {
     console.error("Error updating student:", error);

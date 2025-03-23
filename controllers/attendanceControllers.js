@@ -14,17 +14,17 @@ exports.markAttendance = async (req, res) => {
         // const formattedDate = new Date(date).toISOString().split('T')[0];
 
         // Check if attendance already exists for this date and course
-        const existingAttendance = await Attendance.findOne({ 
-            date, // Ensure stored date matches request date
-            course 
-        });
+        // const existingAttendance = await Attendance.findOne({ 
+        //     date, // Ensure stored date matches request date
+        //     course 
+        // });
 
-        if (existingAttendance) {
-            return res.status(400).json({ 
-                success: false, 
-                error: `Attendance for course "${course}" has already been marked on ${date}.` 
-            });
-        }
+        // if (existingAttendance) {
+        //     return res.status(400).json({ 
+        //         success: false, 
+        //         error: `Attendance for course "${course}" has already been marked on ${date}.` 
+        //     });
+        // }
 
         // Fetch student details based on enrollment numbers
         const studentsAttendance = await Promise.all(

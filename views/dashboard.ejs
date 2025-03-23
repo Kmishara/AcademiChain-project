@@ -16,8 +16,9 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
       rel="stylesheet"
     />
-
+  
     <!-- Custom CSS -->
+     <link rel="stylesheet" href="/css/search.css">
     <link rel="stylesheet" href="/css/dashboard.css" />
     <link rel="stylesheet" href="/css/card.css">
    
@@ -37,12 +38,10 @@
           <span class="material-icons-outlined" id="menu">menu</span>
         </div>
         <div class="header-left">
-          <span class="material-icons-outlined" id="search">search</span>
+          
         </div>
         <div class="header-right">
-          <span class="material-icons-outlined">notifications</span>
-          <span class="material-icons-outlined">email</span>
-          <span 
+         <span 
             class="material-icons-outlined"
             id="profile"  >account_circle</span
           > 
@@ -50,7 +49,7 @@
       </header>
       <!-- End Header -->
 
-
+   <!-- profile -->
       <div class="sub-menu-warp" id="subMenu">
         <div class="sub-menu">
           <div class="user-info">
@@ -58,7 +57,7 @@
             <% if (user) { %> 
               <h1>Welcome, <%= user.username %>!</h1>
           <% } else { %>
-              <p>No user </p>
+              <p> Admin  </p>
           <% } %>
           </div>
           <hr />
@@ -84,11 +83,11 @@
           </a>
         </div>
       </div>
-
+<!-- profile -->
       <!-- Sidebar -->
       <aside id="sidebar">
         <div class="sidebar-title">
-          <div class="sidebar-brand"><span class=""></span> AcedemiChain</div>
+          <div class="sidebar-brand"><span class=""></span> Academic Chain</div>
           <span
             class="material-icons-outlined"
             id="close"
@@ -99,35 +98,35 @@
 
         <ul class="sidebar-list">
           <li class="sidebar-list-item" onclick="showSection('dashboard')">
-            <span class="material-icons-outlined">dashboard</span> Dashboard
+            <span class="material-icons-outlined">dashboard</span>Student Dashboard
           </li>
 
           <!-- ============================== -->
 
           <li class="sidebar-list-item dropdown"
             onclick="showSection('first-sem')">
-              <span class="material-icons-outlined">groups</span> Add Student
+              <span class="material-icons-outlined">person_add</span> Add Student
           </li>
 
           <!-- =========================================== -->
 
           <li class="sidebar-list-item" onclick="showSection('filter')">
-            <span class="material-icons-outlined">category</span> <a href="/filter">Check Status</a> 
+            <span class="material-icons-outlined">school</span> <a href="/filter">Student Activity</a> 
           </li>
           <li
             class="sidebar-list-item"
             onclick="showSection('student-details')"
           >
-          <a href="/feed"><span class="material-icons-outlined">fact_check</span>Student Details</a>      
+          <a href="/feed"><span class="material-icons-outlined">fact_check</span>Student Data</a>      
           </li>
           <li class="sidebar-list-item" onclick="showSection('check-status')">
-            <span class="material-icons-outlined">poll</span> Search
+            <span class="material-icons-outlined">person_search</span> Find Students
           </li>
           <li class="sidebar-list-item" onclick="showSection('settings')">
-            <a href="/attendance">  <span class="material-icons-outlined"   > settings</span> Attendance </a>
+            <a href="/attendance">  <span class="material-icons-outlined"   > how_to_reg</span>Mark Attendance </a>
           </li>
           <li class="sidebar-list-item"><a href="/show-attendance">
-            <span class="material-icons-outlined">logout</span> show-attendance </a>
+            <span class="material-icons-outlined">event</span> Show Attendance </a>
           </li>
         </ul>
       </aside>
@@ -208,12 +207,12 @@
               <input type="number" name="semester" placeholder="Semester" required>
           </div>
           <div class="form-group">
-            <label for="prsnlphn">personal phone Number</label>
-            <input type="text" minlength="10" maxlength="10" name="prsnlphn" placeholder="personal phone Number" required>
+            <label for="prsnlphn">Personal Phone Number</label>
+            <input type="text" minlength="10" maxlength="10" name="prsnlphn" placeholder="Personal Phone Number" required>
         </div>
         <div class="form-group">
-          <label for="parentsphn">parents phone Number</label>
-          <input type="text" minlength="10" maxlength="10" name="parentsphn" placeholder="parents phone Number" required>
+          <label for="parentsphn">Parent's Phone Number</label>
+          <input type="text" minlength="10" maxlength="10" name="parentsphn" placeholder="Parents Phone Number" required>
       </div>
       <div class="form-group">
         <label for="firstSem">I S.G.P.A</label>
@@ -248,11 +247,11 @@
         <input type="number" name="marks" step="0.01" placeholder="VIII C.G.P.A" required>
     </div>
     <div class="form-group">
-      <label for="profilepic">Profilepic</label>
-      <input type="file" name="profilepic" placeholder="profilepic" required>
+      <label for="profilepic">Profile Pic</label>
+      <input type="file" name="profilepic" placeholder="Profile Pic" required>
   </div>
           <!-- <button type="submit" id="submit-btn">Submit</button> -->
-            <input type="submit" id="submit-btn" placeholder="submit" name="submit">
+            <input type="submit" id="submit-btn" placeholder="Submit" name="submit">
           </form>
     
         </section>
@@ -274,17 +273,11 @@
        
        
         <!-- =======Check Status========= -->
-        <section
-          id="check-status"
-          class="content-section"
-          style="display: none"
-        >
-        <form id="searchForm" method="get" action="/search" >
-          <input type="text" name="enroll" id="enroll" placeholder="Enter enrollment number" required />
-          <br>
-          <br>
-          <button type="submit">Search</button>
-        </form>
+        <section id="check-status" class="content-section" style="display: none">
+          <form id="searchForm" method="get" action="/search">
+            <input type="text" name="enroll" id="enroll" placeholder="Enter enrollment number" required />
+            <button type="submit">Search</button>
+          </form>
         
         <!-- Table to display student details -->
         <table id="studentTable" border="1" style="display: none; margin-top: 20px;">
@@ -296,8 +289,8 @@
               <th>Branch</th>
               <th>Course</th>
               <th>Semester</th>
-              <th>personal phone Number</th>
-              <th>parents phone Number</th>
+              <th>Personal Phone Number</th>
+              <th>Parent's Phone Number</th>
               <th>I S.G.P.A</th>
               <th>II S.G.P.A</th>
               <th>III S.G.P.A</th>
@@ -305,35 +298,34 @@
               <th>V S.G.P.A</th>
               <th>VI S.G.P.A</th>
               <th>VII S.G.P.A</th>
-              <th>VIII C.G.P.A.</th>
-              <th>profilepic</th>
+              <th>VIII C.G.P.A.</th> 
+              <th>Profile Pic</th> 
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><input type="text" id="name" readonly /></td>
-              <td><input type="email" id="mail" readonly /></td>
-              <td><input type="text" id="enrollDisplay" readonly /></td>
-              <td><input type="text" id="Branch" readonly /></td>
-              <td><input type="text" id="Course" readonly /></td>
-              <td><input type="number" id="semester" readonly /></td>
-              <td><input type="number" id="prsnlphn" readonly /></td>
-              <td><input type="number" id="parentsphn" readonly /></td>
-              <td><input type="number" id="firstSem" readonly /></td>
-              <td><input type="number" id="secSem" readonly /></td>
-              <td><input type="number" id="thirdSem" readonly /></td>
-              <td><input type="number" id="fourthSem" readonly /></td>
-              <td><input type="number" id="fifthSem" readonly /></td>
-              <td><input type="number" id="sixthSem" readonly /></td>
-              <td><input type="number" id="seventhSem" readonly /></td>
-              <td><input type="number" id="marks" readonly /></td>
-              <td><img id="profilepic" src="" alt="Profile Picture" style="width: 50px; height: 50px;" /></td>
+              <td><input type="text" class="detaishide" id="name" readonly /></td>
+              <td><input type="email" class="detaishide" id="mail" readonly /></td>
+              <td><input type="text" class="detaishide" id="enrollDisplay" readonly /></td>
+              <td><input type="text" class="detaishide" id="Branch" readonly /></td>
+              <td><input type="text" class="detaishide" id="Course" readonly /></td>
+              <td><input type="number" class="detaishide" id="semester" readonly /></td>
+              <td><input type="number" class="detaishide" id="prsnlphn" readonly /></td>
+              <td><input type="number" class="detaishide" id="parentsphn" readonly /></td>
+              <td><input type="number" class="detaishide" id="firstSem" readonly /></td>
+              <td><input type="number" class="detaishide" id="secSem" readonly /></td>
+              <td><input type="number" class="detaishide" id="thirdSem" readonly /></td>
+              <td><input type="number" class="detaishide" id="fourthSem" readonly /></td>
+              <td><input type="number" class="detaishide" id="fifthSem" readonly /></td>
+              <td><input type="number" class="detaishide" id="sixthSem" readonly /></td>
+              <td><input type="number" class="detaishide" id="seventhSem" readonly /></td>
+              <td><input type="number" class="detaishide" id="marks" readonly /></td>
+              <td><img id="profilepic" class="detaishide" src="" alt="Profile Picture" style="width: 50px; height: 50px;" /></td> 
             </tr>
           </tbody>
         </table>
-
-        </section>
-
+      </section>
+      
         <!-- =======Settings========= -->
         <section id="settings" class="content-section" style="display: none">
           <h2>Settings</h2>
@@ -419,7 +411,7 @@
       document.getElementById("sixthSem").value = student.sixthSem;
       document.getElementById("seventhSem").value = student.seventhSem;
       document.getElementById("marks").value = student.marks;
-     // document.getElementById("profilepic").value = student.profilepic;
+     document.getElementById("profilepic").value = student.profilepic;
      const profilePicElement = document.getElementById("profilepic");
     profilePicElement.src = `/images/uploads/${student.profilepic}`;
     profilePicElement.alt = `${student.name}'s Profile Picture`;

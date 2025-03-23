@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="/css/attendance.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    rel="stylesheet"
+  />
     <link
     href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
     rel="stylesheet"
@@ -21,28 +26,38 @@
 </head>
 <body>
     <header class="header">
-        <h6>AcademicChain</h6>
-        <div class="menu-icon" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
+        <h6>Academic Chain</h6>
+        <div class="menu-icon" onclick="toggleSidebar()">
+          <i class="fas fa-bars"></i> 
+      </div>
+        <div class="header-right">
+            <span class="material-icons-outlined" id="profile">account_circle</span>
         </div>
-        <nav class="nav-links">
-            <a href="/dashboard"><i class="fas fa-home"></i> Dashboard</a>
-            <a href="/attendance"><i class="fas fa-calendar-check"></i> Attendance</a>
-            <a href="/show-attendance"><i class="fas fa-list"></i> Show Attendance</a>
-            <a href="/Profile"><i class="fas fa-user"></i> Update Profile</a>
-            <a href="/feed"><i class="fas fa-info-circle"></i> Details</a>
-            <a href="/filter"><i class="fas fa-filter"></i> Filter</a>
-            <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i>          Logout</a>
-        </nav>
     </header>
+    
+    <aside id="aside">
+        <div class="close-btn" onclick="toggleSidebar()">
+            <i class="fas fa-times"></i>
+        </div>
+       
+        <nav class="nav-links">
+            <a href="/dashboard"><span class="material-icons-outlined">dashboard</span>Student Dashboard</a>
+            <a href="/feed"><i class="fas fa-info-circle"></i>Student Data</a>
+            <a href="/filter"><span class="material-icons-outlined">school</span></i>Student Activity</a>
+            <a href="/attendance"><span class="material-icons-outlined"> how_to_reg</span></i>Mark Attendance</a>
+            <a href="/show-attendance"><span class="material-icons-outlined">event</span>Show Attendance</a>
+            <a href="/Profile"><i class="fas fa-user"></i> Update Profile</a>
+            <a href="/logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+        </nav>
+    </aside>
     <h1>mark attendance</h1>
    <form action="/attendance" id="attendanceForm" method="post">
     <input type="date" id="date" name="date">
     <select name="course"  id="course">
         <option value="" selected disabled>Select a course</option>
-        <option value="CS 101">CS 101</option>
-        <option value="CS 102">CS 102</option>
-        <option value="CS 103">CS 103</option>
+        <option value="CS 101">CS 801</option>
+        <option value="CS 102">CS 802</option>
+        <option value="CS 103">CS 803</option>
     </select>
     
    <!-- </form> -->
@@ -66,8 +81,8 @@
                        <td><%= user.name %></td>
                         
                         <td><%= user.enroll %></td>
-                        <td><input type="checkbox" name="attendance[<%= user.enroll %>][status]" value="Present"></td>
-                        <td><input type="checkbox" name="attendance[<%= user.enroll %>][status]" value="Absent"></td>
+                        <td><input type="radio" name="attendance[<%= user.enroll %>][status]" value="Present"></td>
+                        <td><input type="radio" name="attendance[<%= user.enroll %>][status]" value="Absent"></td>
     
                          <!-- <td><%=user.profilepic %></td> -->
                         </tr>
@@ -163,5 +178,6 @@
     dateInput.setAttribute('max', today);
     dateInput.value = today; // Set default value to today
 </script>
+<script src="/js/navbar.js"></script>
 </body>
 </html>
