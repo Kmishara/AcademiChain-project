@@ -6,8 +6,8 @@ exports.addstudentsUser = async (req, res) => {
   
     try {
         const { name, mail, semester,Branch,Course, enroll, prsnlphn, parentsphn, marks, firstSem,Address,due,
-        secSem,
-        thirdSem,
+        secSem,tenthMarks,twelfthMarks,
+        thirdSem,Backlog,Languages,textarea,
         fourthSem,
         fifthSem,
         sixthSem,
@@ -15,7 +15,7 @@ exports.addstudentsUser = async (req, res) => {
         
        
         // Validate input fields
-        if (!name || !mail || !semester || !enroll || !Branch || !Course || !Address||!due||!prsnlphn || !parentsphn || !firstSem ||!secSem || !thirdSem || !fourthSem ||!fifthSem ||!sixthSem || !seventhSem || !marks || !req.file) {
+        if (!name || !mail || !semester || !enroll || !Branch || !Course || !Address||!due||!prsnlphn || !parentsphn || !firstSem ||!secSem || tenthMarks||!twelfthMarks||!thirdSem || !fourthSem ||!fifthSem ||!sixthSem || !seventhSem || !marks ||!Backlog||!Languages||!textarea, !req.file) {
           return res.send(`<script>alert("All fields are required!"); window.history.back(/add);</script>`);
         }
         
@@ -34,6 +34,8 @@ exports.addstudentsUser = async (req, res) => {
         const newStudent = new Student({
           name,
           mail,
+          Backlog,Languages,textarea,
+          tenthMarks,twelfthMarks,
           Address,
           due,
           semester,

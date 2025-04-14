@@ -49,6 +49,10 @@ body {
   button {
     padding: 5px 10px;
     margin-right: 5px;
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    /* margin-top: 50px; */
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -60,7 +64,7 @@ body {
   }
   
   button:last-of-type {
-    background-color: #ef4444;
+    background-color: rgb(90, 196, 90);
     color: white;
   }
   

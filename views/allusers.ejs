@@ -45,6 +45,8 @@
               <th>Semester</th>
               <th>personal Phone Number</th>
               <th>parents Phone Number</th>
+              <th>tenthMarks</th>
+              <th>twelfthMarks</th>
               <th>I S.G.P.A</th>
               <th>II S.G.P.A</th>
               <th>III S.G.P.A</th>
@@ -53,9 +55,12 @@
               <th>VI S.G.P.A</th>
               <th>VII S.G.P.A</th>
               <th>VIII C.G.P.A.</th>
+              <th>Backlog</th>
+              <th>Languages</th>
               <th>Address</th>
               <th>Due</th>
               <th>Profile pic</th>
+              <th>call response</th>
               <th>Actions</th> <!-- Added column for buttons -->
             </tr>
           </thead>
@@ -74,6 +79,8 @@
                 <td><%= user.semester %></td>
                 <td><%= user.prsnlphn %></td>
                 <td><%= user.parentsphn %></td>
+                <td><%= user.tenthMarks %></td>
+                <td><%= user.twelfthMarks %></td>
                 <td><%= user.firstSem %></td>
                 <td><%= user.secSem %></td>
                 <td><%= user.thirdSem %></td>
@@ -82,6 +89,9 @@
                 <td><%= user.sixthSem %></td>
                 <td><%= user.seventhSem %></td>
                 <td><%= user.marks %></td>
+                <td><%= user.Backlog %></td>
+                <td><%= user.Languages %></td>
+                <td><%= user.teaxtarea %></td>
                 <td><%= user.Address %></td>
                 <td><%= user.due %></td>
                 <td><img id="userprofilepic" src="/images/uploads/<%= user.profilepic %>" alt=""></td>

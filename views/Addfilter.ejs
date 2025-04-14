@@ -10,7 +10,9 @@
   <h2>Filter Columns</h2>
 
   <div class="checkboxes" id="columnCheckboxes"></div>
+  
   <button onclick="printTable()">Print as PDF</button>
+
   <div class="table-container">
     <table id="studentTable">
       <thead id="tableHead">
@@ -23,7 +25,7 @@
           <th>parentsphn</th>
          <th>due</th>
           <th>marks</th>
-          
+          <th>Languages</th>
         </tr>
       </thead>
       <tbody id="tableBody">
@@ -32,12 +34,12 @@
             <td><%= student.enroll %></td>
             <td><%= student.name %></td>
             <td><%= student.mail %></td>
-            <td><%= student.address %></td>
+            <td><%= student.Address %></td>
             <td><%= student.prsnlphn %></td>
             <td><%= student.parentsphn %></td>
             <td><%= student.due %></td>
             <td><%= student. marks %></td>
-           
+            <td><%= student. Languages %></td>
           </tr>
         <% }); %>
       </tbody>

@@ -218,6 +218,14 @@
           <input type="text" minlength="10" maxlength="10" name="parentsphn" placeholder="Parents Phone Number" required>
       </div>
       <div class="form-group">
+        <label for="tenthMarks">tenthMarks</label>
+        <input type="number" name="tenthMarks"  placeholder="10 %" required>
+    </div>
+    <div class="form-group">
+      <label for="twelfthMarks">twelfthMarks</label>
+      <input type="number" name="twelfthMarks"  placeholder="12 %" required>
+  </div>
+      <div class="form-group">
         <label for="firstSem">I S.G.P.A</label>
         <input type="number" name="firstSem" step="0.01" placeholder="I S.G.P.A" required>
     </div>
@@ -250,8 +258,28 @@
         <input type="number" name="marks" step="0.01" placeholder="VIII C.G.P.A" required>
     </div>
     <div class="form-group">
+      <label for="textarea">Call response</label>
+      <input type="text" name="textarea"  placeholder="call response">
+  </div>
+  <div class="form-group">
+    <label for="Backlog">Backlog</label>
+    <input type="number" name="Backlog"  placeholder="Backlog" required>
+</div>
+    <div class="form-group">
       <label for="Address">Address</label>
       <input type="text" name="Address"  placeholder="Address" required>
+  </div>
+  <div class="form-group">
+    <label for="Languages">Languages</label>
+    <select name="Languages" required>
+      <option value="">-- Select Language --</option>
+      <option value="C">C</option>
+      <option value="C++">C++</option>
+      <option value="Java">Java</option>
+      <option value="Python">Python</option>
+      <option value="Mernstack">Mernstack</option>
+      <option value="Null">Null</option>
+    </select>
   </div>
   <div class="form-group">
     <label for="due">Due</label>
@@ -261,6 +289,7 @@
       <label for="profilepic">Profile Pic</label>
       <input type="file" name="profilepic" placeholder="Profile Pic" required>
   </div>
+  
           <!-- <button type="submit" id="submit-btn">Submit</button> -->
             <input type="submit" id="submit-btn" placeholder="Submit" name="submit">
           </form>
@@ -302,6 +331,8 @@
               <th>Semester</th>
               <th>Personal Phone Number</th>
               <th>Parent's Phone Number</th>
+              <th>tenthMarks</th>
+              <th>twelfthMarks</th>
               <th>I S.G.P.A</th>
               <th>II S.G.P.A</th>
               <th>III S.G.P.A</th>
@@ -310,9 +341,12 @@
               <th>VI S.G.P.A</th>
               <th>VII S.G.P.A</th>
               <th>VIII C.G.P.A.</th> 
+              <th>Backlog</th>
+              <th>Languages</th>
               <th>Address</th>
               <th>due</th>
               <th>Profile Pic</th> 
+              <th>Call response</th>
             </tr>
           </thead>
           <tbody>
@@ -320,11 +354,15 @@
               <td><input type="text" class="detaishide" id="name" readonly /></td>
               <td><input type="email" class="detaishide" id="mail" readonly /></td>
               <td><input type="text" class="detaishide" id="enrollDisplay" readonly /></td>
+              
               <td><input type="text" class="detaishide" id="Branch" readonly /></td>
               <td><input type="text" class="detaishide" id="Course" readonly /></td>
               <td><input type="number" class="detaishide" id="semester" readonly /></td>
               <td><input type="number" class="detaishide" id="prsnlphn" readonly /></td>
+            
               <td><input type="number" class="detaishide" id="parentsphn" readonly /></td>
+              <td><input type="number" class="detaishide" id="tenthMarks" readonly /></td>
+              <td><input type="number" class="detaishide" id="twelfthMarks" readonly /></td>
               <td><input type="number" class="detaishide" id="firstSem" readonly /></td>
               <td><input type="number" class="detaishide" id="secSem" readonly /></td>
               <td><input type="number" class="detaishide" id="thirdSem" readonly /></td>
@@ -333,8 +371,12 @@
               <td><input type="number" class="detaishide" id="sixthSem" readonly /></td>
               <td><input type="number" class="detaishide" id="seventhSem" readonly /></td>
               <td><input type="number" class="detaishide" id="marks" readonly /></td>
+              <td><input type="number" class="detaishide" id="Backlog" readonly /></td>
+              <td><input type="text" class="detaishide" id="Languages" readonly /></td>
+              <td><input type="text" class="detaishide" id="textarea" readonly /></td>
               <td><input type="text" class="detaishide" id="Address" readonly /></td>
               <td><input type="text" class="detaishide" id="due" readonly /></td>
+
               <td><img id="profilepic" class="detaishide" src="" alt="Profile Picture" style="width: 50px; height: 50px;" /></td> 
             </tr>
           </tbody>
@@ -418,6 +460,8 @@
       document.getElementById("semester").value = student.semester;
       document.getElementById("prsnlphn").value = student.prsnlphn;
       document.getElementById("parentsphn").value = student.parentsphn;
+      document.getElementById("tenthMarks").value = student.tenthMarks;
+      document.getElementById("twelfthMarks").value = student.twelfthMarks;
       document.getElementById("firstSem").value = student.firstSem;
       document.getElementById("secSem").value = student.secSem;
       document.getElementById("thirdSem").value = student.thirdSem;
@@ -426,6 +470,9 @@
       document.getElementById("sixthSem").value = student.sixthSem;
       document.getElementById("seventhSem").value = student.seventhSem;
       document.getElementById("marks").value = student.marks;
+      document.getElementById("Backlog").value = student.Backlog;
+      document.getElementById("Languages").value = student.Languages;
+      document.getElementById("textarea").value = student.textarea;
       document.getElementById("Address").value = student.Address;
       document.getElementById("due").value = student.due;
      document.getElementById("profilepic").value = student.profilepic;

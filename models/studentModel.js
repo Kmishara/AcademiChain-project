@@ -20,7 +20,15 @@ const studentSchema = new mongoose.Schema({
     seventhSem:{type:Number,require:true},
     marks:{type:Number, require:true},
     profilepic:{type:String },
-
+    textarea:{type:String },
+    Languages: {
+        type: String,
+        enum: ['C', 'C++', 'Java', 'Python', 'Mernstack', 'Null'],
+        required: true
+      },
+    Backlog:{type:String },
+    tenthMarks:{type:Number},
+    twelfthMarks:{type:Number}
    
 
 })
