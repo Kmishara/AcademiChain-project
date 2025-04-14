@@ -5,7 +5,7 @@ const Student = require("../models/studentModel");
 exports.addstudentsUser = async (req, res) => {
   
     try {
-        const { name, mail, semester,Branch,Course, enroll, prsnlphn, parentsphn, marks, firstSem,
+        const { name, mail, semester,Branch,Course, enroll, prsnlphn, parentsphn, marks, firstSem,Address,due,
         secSem,
         thirdSem,
         fourthSem,
@@ -15,7 +15,7 @@ exports.addstudentsUser = async (req, res) => {
         
        
         // Validate input fields
-        if (!name || !mail || !semester || !enroll || !Branch || !Course || !prsnlphn || !parentsphn || !firstSem ||!secSem || !thirdSem || !fourthSem ||!fifthSem ||!sixthSem || !seventhSem || !marks || !req.file) {
+        if (!name || !mail || !semester || !enroll || !Branch || !Course || !Address||!due||!prsnlphn || !parentsphn || !firstSem ||!secSem || !thirdSem || !fourthSem ||!fifthSem ||!sixthSem || !seventhSem || !marks || !req.file) {
           return res.send(`<script>alert("All fields are required!"); window.history.back(/add);</script>`);
         }
         
@@ -34,6 +34,8 @@ exports.addstudentsUser = async (req, res) => {
         const newStudent = new Student({
           name,
           mail,
+          Address,
+          due,
           semester,
           Branch,Course,
           enroll,

@@ -1,4 +1,5 @@
 const User = require("../models/userModels");
+const Student = require("../models/studentModel");
 const bcrypt = require("bcryptjs");
 const{jwtAuthMiddlware,generateToken} = require('../utilis/jwt');
 require("dotenv").config();
@@ -72,3 +73,12 @@ exports.loginUser = async (req, res) => {
   }
 };
 
+exports.AddfilterStudents = async (req, res) => {
+  try {
+    const students = await Student.find({});
+    res.render('Addfilter', { students });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Database error');
+  }
+};

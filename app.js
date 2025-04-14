@@ -38,6 +38,9 @@ app.use('/attendance', attendanceRoutes);
 app.get('/', (req, res) => {
     res.render('index', { title: 'Express' });
 });
+app.get('/Addfilter', (req, res) => {
+  res.render( 'Addfilter');
+});
 app.get('/Profile', (req, res) => {
   res.render('Profile',);
 });

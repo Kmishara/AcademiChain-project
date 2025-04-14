@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Table Filter</title>
+  <link rel="stylesheet" href="/css/Addfilter.css">
+</head>
+<body>
+
+  <h2>Filter Columns</h2>
+
+  <div class="checkboxes" id="columnCheckboxes"></div>
+  <button onclick="printTable()">Print as PDF</button>
+  <div class="table-container">
+    <table id="studentTable">
+      <thead id="tableHead">
+        <tr>
+          <th>Enroll</th>
+          <th>Name</th>
+          <th>Mail</th>
+         <th>Address</th>
+          <th>prsnlphn</th>
+          <th>parentsphn</th>
+         <th>due</th>
+          <th>marks</th>
+          
+        </tr>
+      </thead>
+      <tbody id="tableBody">
+        <% students.forEach(student => { %>
+          <tr>
+            <td><%= student.enroll %></td>
+            <td><%= student.name %></td>
+            <td><%= student.mail %></td>
+            <td><%= student.address %></td>
+            <td><%= student.prsnlphn %></td>
+            <td><%= student.parentsphn %></td>
+            <td><%= student.due %></td>
+            <td><%= student. marks %></td>
+           
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="/js/Addfilter.js"></script>
+</body>
+</html>

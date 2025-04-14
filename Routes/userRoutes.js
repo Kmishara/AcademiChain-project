@@ -2,12 +2,16 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/userModels')
 
-const {registerUser,loginUser,getUserProfile,updateUserProfile} = require("../controllers/userControllers")
+const {registerUser,loginUser,AddfilterStudents,getUserProfile,updateUserProfile} = require("../controllers/userControllers")
 const path = require('path');
 router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.get('/login', (req, res) => {
     res.render(path.join(__dirname, '../views', 'index.ejs'));
+  });
+  router.get('/Addfilter', AddfilterStudents);
+  router.get('/Addfilter', (req, res) => {
+    res.render(path.join(__dirname, '../views', 'Addfilter.ejs'));
   });
   router.get('/register', (req, res) => {
     res.render(path.join(__dirname, '../views', 'index.ejs'));

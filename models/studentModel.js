@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const studentSchema = new mongoose.Schema({
     name:{ type: String, required: true },
     mail:{ type: String, required: true },
+    Address:{type:String,required:true },
+    due:{type:String,required:true },
     semester:{ type: String, required: true },
     enroll:{type:String, require:true, unique:true},
     Branch:{type:String, require:true},

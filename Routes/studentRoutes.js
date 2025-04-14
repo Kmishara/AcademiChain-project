@@ -144,6 +144,8 @@ router.post("/update/:id", upload.single("profilepic"), async (req, res) => {
       fifthSem,
       sixthSem,
       seventhSem,
+      Address,
+      due,
     } = req.body;
 
     // Handle profile pic update
@@ -172,6 +174,8 @@ router.post("/update/:id", upload.single("profilepic"), async (req, res) => {
           fifthSem,
           sixthSem,
           seventhSem,
+          Address,
+          due,
           marks,
           profilepic: profilePicPath, // Save new profile pic if updated
         },
