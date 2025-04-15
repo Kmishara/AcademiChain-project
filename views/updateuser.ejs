@@ -112,12 +112,13 @@
             <label for="Languages">Languages</label>
             <select name="Languages" required>
               <option value="">-- Select Language --</option>
-              <option value="<%= user ? user.Languages : '' %>">C</option>
-              <option value="<%= user ? user.Languages : '' %>">C++</option>
-              <option value="<%= user ? user.Languages : '' %>">Java</option>
-              <option value="<%= user ? user.Languages : '' %>">Python</option>
-              <option value="<%= user ? user.Languages : '' %>">Mernstack</option>
-              <option value="<%= user ? user.Languages : '' %>">Null</option>
+              <option value="C" <%= user && user.Languages === "C" ? "selected" : "" %>>C</option>
+              <option value="C++" <%= user && user.Languages === "C++" ? "selected" : "" %>>C++</option>
+              <option value="Java" <%= user && user.Languages === "Java" ? "selected" : "" %>>Java</option>
+              <option value="Python" <%= user && user.Languages === "Python" ? "selected" : "" %>>Python</option>
+              <option value="Mernstack" <%= user && user.Languages === "Mernstack" ? "selected" : "" %>>Mernstack</option>
+              <option value="Null" <%= user && user.Languages === "Null" ? "selected" : "" %>>Null</option>
+              
             </select>
           </div>
 

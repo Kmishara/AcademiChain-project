@@ -131,7 +131,7 @@ router.post("/update/:id", upload.single("profilepic"), async (req, res) => {
       name,
       mail,
       Backlog,
-      Languages,
+     Languages,
       textarea,
       enroll,tenthMarks,twelfthMarks,
       Branch,
