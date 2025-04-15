@@ -147,13 +147,16 @@
               </div>
               <h1 id="total-students">Loading...</h1>
             </div>
+            <!-- abhishek -->
             <div class="card">
               <div class="card-inner">
                 <h3>Today Present</h3>
                 <span class="material-icons-outlined">front_hand</span>
               </div>
-              <h1>6</h1>
+              <div id="course-attendance-container"></div>
+
             </div>
+            
             <div class="card">
               <div class="card-inner">
                 <h3>Passing Ratio</h3>
@@ -218,11 +221,11 @@
           <input type="text" minlength="10" maxlength="10" name="parentsphn" placeholder="Parents Phone Number" required>
       </div>
       <div class="form-group">
-        <label for="tenthMarks">tenthMarks</label>
+        <label for="tenthMarks">10th Marks(%)</label>
         <input type="number" name="tenthMarks"  placeholder="10 %" required>
     </div>
     <div class="form-group">
-      <label for="twelfthMarks">twelfthMarks</label>
+      <label for="twelfthMarks">12th Marks(%)</label>
       <input type="number" name="twelfthMarks"  placeholder="12 %" required>
   </div>
       <div class="form-group">
@@ -491,27 +494,54 @@
 
 </script>
 
-  <!-- js for fetching all students -->
 <script>
   // Function to fetch total students
   async function fetchTotalStudents() {
-      try {
-          const response = await fetch('/total-students'); // API endpoint to get total students
-          if (!response.ok) {
-              throw new Error(await response.text());
-          }
-
-          const data = await response.json();
-          document.getElementById('total-students').textContent = data.total; // Update the count in the UI
-      } catch (error) {
-          console.error('Error fetching total students:', error.message);
-          document.getElementById('total-students').textContent = 'Error!';
+    try {
+      const response = await fetch('/total-students');
+      if (!response.ok) {
+        throw new Error(await response.text());
       }
+
+      const data = await response.json();
+      document.getElementById('total-students').textContent = data.total;
+    } catch (error) {
+      console.error('Error fetching total students:', error.message);
+      document.getElementById('total-students').textContent = 'Error!';
+    }
   }
 
-  // Call the function when the page loads
-  window.onload = fetchTotalStudents;
+  // Function to fetch today's attendance
+  async function fetchTodayAttendanceCourseWise() {
+    try {
+      const response = await fetch('/today-attendance');
+      if (!response.ok) {
+        throw new Error(await response.text());
+      }
+
+      const result = await response.json();
+      const data = result.data;
+
+      const container = document.getElementById('course-attendance-container');
+      container.innerHTML = ''; // Clear previous content
+
+      for (const course in data) {
+        const count = data[course];
+        const p = document.createElement('p');
+        p.textContent = `Course: ${course} — Present: ${count}`;
+        container.appendChild(p);
+      }
+    } catch (error) {
+      console.error("Error fetching course-wise attendance:", error.message);
+      document.getElementById('course-attendance-container').textContent = 'Error!';
+    }
+  } // Call both functions when the page loads
+  window.onload = function () {
+    fetchTotalStudents();
+    fetchTodayAttendanceCourseWise();
+  };
 </script>
-    
+
+
       </body>
 </html>
